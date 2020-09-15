@@ -4,6 +4,7 @@ export default class IndexPage extends React.Component {
   state = {
     firstName: "",
     lastName: "",
+    kitNumber: "",
   }
 
   handleInputChange = event => {
@@ -18,14 +19,15 @@ export default class IndexPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    alert(`Welcome ${this.state.firstName} ${this.state.lastName}!`)
+    alert(`Welcome ${this.state.firstName} ${this.state.lastName}! Your kit number is ${this.state.kitNumber}`)
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <div>
         <label>
-          First name
+          First name 
           <input
             type="text"
             name="firstName"
@@ -33,8 +35,10 @@ export default class IndexPage extends React.Component {
             onChange={this.handleInputChange}
           />
         </label>
+        </div>
+        <div>
         <label>
-          Last name
+          Last name 
           <input
             type="text"
             name="lastName"
@@ -42,6 +46,18 @@ export default class IndexPage extends React.Component {
             onChange={this.handleInputChange}
           />
         </label>
+        </div>
+        <div>
+        <label>
+          Kit number
+          <input
+            type="text"
+            name="kitNumber"
+            value={this.state.kitNumber}
+            onChange={this.handleInputChange}
+          />
+        </label>
+        </div>
         <button type="submit">Submit</button>
       </form>
     )
